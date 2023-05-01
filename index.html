@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body{
+        margin:0;
+      }
+      canvas {
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+      main{
+        color: white;
+        z-index:99;
+        position:absolute;
+        width: 100%;
+        margin: 0px auto;
+        padding: 25px 14px;
+        display: flex;
+        align-items: center;
+        gap:20px;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+        let currCanvas = 'solar';
+    </script>
+    <script>
+      function changeCanvas(){
+        if (currCanvas === 'solar') {
+          currCanvas = 'rocket';
+          document.getElementById('solar').style.display = 'none';
+          document.getElementById('rocket').style.display = 'block';
+        } else {
+          currCanvas = 'solar';
+          document.getElementById('rocket').style.display = 'none';
+          document.getElementById('solar').style.display = 'block';
+        }
+        console.log(currCanvas)
+      }
+      
+    </script>
+
+
+
+
+<canvas id='solar'></canvas>
+<canvas id="rocket" style="display:none"></canvas>
+
+    <main>
+      <div id="cameraChange" style="width:100px; height:100px;">
+        <img style="width:100%; height:100%; filter: brightness(0) invert(1);" src="./images/telescope.png">
+      </div>
+      <div style="width:100px; height:100px;">
+        <img style="width:100%; height:100%; filter: brightness(0) invert(1);" onclick="changeCanvas()" src="./images/rocketlogo.png">
+      </div>
+    </main>
+
+
+    <script defer type="module" src="./solar.js"></script>
+    <script defer type="module" src="./rocket.js"></script>
+  </body>
+</html>
